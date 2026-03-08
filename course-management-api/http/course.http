@@ -1,0 +1,30 @@
+GET http://localhost:3000/course
+
+GET http://localhost:3000/course/1
+
+POST http://localhost:3000/course
+Content-Type: application/json
+
+{
+    "name": "Introduction to NestJS",
+    "description": "Learn the basics of NestJS framework."
+}
+
+PUT http://localhost:3000/course/3
+Content-Type: application/json
+
+{
+    "name": "Advanced NestJS",
+    "description": "Deep dive into NestJS features and best practices."
+}
+
+PATCH http://localhost:3000/course/3
+Content-Type: application/json
+
+{
+    "description": "Updated course description for NestJS."
+}
+
+DELETE http://localhost:3000/course/1
+
+
