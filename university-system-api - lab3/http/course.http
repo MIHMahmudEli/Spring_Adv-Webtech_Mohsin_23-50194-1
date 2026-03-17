@@ -1,0 +1,15 @@
+GET http://localhost:3000/course
+
+GET http://localhost:3000/course/2
+
+POST http://localhost:3000/course
+Content-Type: application/json
+{
+    "name": "OOP 3",
+    "code": "CS103",
+    "instructor": "Hira",
+    "credits": 3,
+    "description": "Advanced OOP Concepts"
+}
+
+

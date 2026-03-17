@@ -1,0 +1,16 @@
+GET http://localhost:3000/enrollment
+
+POST http://localhost:3000/enrollment
+Content-Type: application/json
+{
+    "studentName": "Ali",
+    "courseId": "2"
+}
+
+POST http://localhost:3000/enrollment
+Content-Type: application/json
+{
+    "studentName": "Ahmed",
+    "courseId": "3"
+}
+

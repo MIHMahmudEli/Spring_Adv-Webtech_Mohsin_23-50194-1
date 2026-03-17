@@ -71,5 +71,21 @@ Content-Type: application/json
     "material": ""
 }
 
+POST http://localhost:3000/course
+Content-Type: application/json
+
+{
+    "name": "Advanced NestJS",
+    "code": "CS102",
+    "instructor": "Jane Smith",
+    "credits": 10,
+    "description": "Deep dive into NestJS features and best practices.",
+    "material": ""
+}
+
+
+
+
+
 
 
