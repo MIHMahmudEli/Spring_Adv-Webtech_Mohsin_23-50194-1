@@ -1,0 +1,75 @@
+//Valid Requests 
+GET http://localhost:3000/course
+
+GET http://localhost:3000/course/1
+
+POST http://localhost:3000/course
+Content-Type: application/json
+
+{
+    "name": "Introduction to NestJS",
+    "code": "CS101",
+    "instructor": "John Doe",
+    "credits": 3,
+    "description": "Learn the basics of NestJS framework."
+}
+
+PUT http://localhost:3000/course/1
+Content-Type: application/json
+
+{
+    "name": "Advanced NestJS",
+    "code": "CS102",
+    "instructor": "Jane Smith",
+    "credits": 3,
+    "description": "Deep dive into NestJS features and best practices."
+}
+
+PATCH http://localhost:3000/course/1
+Content-Type: application/json
+
+{
+    "name": "Advanced dotnet"
+}
+
+DELETE http://localhost:3000/course/1
+
+POST http://localhost:3000/course/1/upload
+Content-Type: multipart/form-data
+
+
+//invalid requests
+POST http://localhost:3000/course
+Content-Type: application/json
+
+{
+    "name": "Advanced NestJS",
+    "code": "CS102",
+    "instructor": "Jane Smith",
+    "credits": 3,
+    "description": "Deep dive into NestJS features and best practices.",
+    "material": ""
+}
+
+POST http://localhost:3000/course
+Content-Type: application/json
+{
+    "name": "Advanced NestJS",
+    "instructor": "Jane Smith",
+    "description": "Deep dive into NestJS features and best practices.",
+}
+
+POST http://localhost:3000/course
+Content-Type: application/json
+
+{
+    "name": "Advanced NestJS",
+    "code": "",
+    "instructor": "Jane Smith",
+    "credits": 3,
+    "description": "Deep dive into NestJS features and best practices.",
+    "material": ""
+}
+
+
+
