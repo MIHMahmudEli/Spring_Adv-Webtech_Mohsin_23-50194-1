@@ -67,8 +67,7 @@ Content-Type: application/json
     "code": "",
     "instructor": "Jane Smith",
     "credits": 3,
-    "description": "Deep dive into NestJS features and best practices.",
-    "material": ""
+    "description": "Deep dive into NestJS features and best practices."
 }
 
 POST http://localhost:3000/course
@@ -79,8 +78,7 @@ Content-Type: application/json
     "code": "CS102",
     "instructor": "Jane Smith",
     "credits": 10,
-    "description": "Deep dive into NestJS features and best practices.",
-    "material": ""
+    "description": "Deep dive into NestJS features and best practices."
 }
 
 

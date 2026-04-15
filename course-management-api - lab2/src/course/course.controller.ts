@@ -41,35 +41,7 @@ export class CourseController {
 
   //fiel uoload 
   @Post(':id/upload')
-  @UseInterceptors(
-    FileInterceptor('file', {
-      storage: diskStorage({
-        destination: './src/uploads',
-        filename: (req, file, cb) => {
-          const uniqueName = Date.now() + '-' + file.originalname;
-          cb(null, uniqueName);
-        },
-      }),
-
-      limits: {
-        fileSize: 2 * 1024 * 1024, // 2MB
-      },
-
-      fileFilter: (req, file, cb) => {
-        const allowedTypes = /jpg|jpeg|png|pdf/;
-        const uniqueName = Date.now() + '-' + file.originalname;
-
-        if (!allowedTypes.test(uniqueName)) {
-          return cb(
-            new BadRequestException('Only JPG, JPEG, PNG, and PDF files are allowed'),
-            false,
-          );
-        }
-        
-        cb(null, true);
-      },
-    }),
-  )
+  @UseInterceptors(FileInterceptor('file'))
   uploadCourseMaterial(
     @Param('id') id: string,
     @UploadedFile() file: Express.Multer.File,

@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
 import { CreateCourseDto } from './dto/create-course.dto';
 import { UpdateCourseDto } from './dto/update-course.dto';
 import { Course } from './interfaces/course.interface';
@@ -86,16 +86,28 @@ export class CourseService {
 
   // FILE UPLOAD
   uploadCourseMaterial(id: string, file: Express.Multer.File) {
-    const course = this.courses.find(c => c.id === Number(id));
-    if (!course) {
-      throw new NotFoundException('Course not found');
+    if (!file) {
+      throw new BadRequestException('File is required');
     }
+
+    const allowedTypes = /jpg|jpeg|png|pdf/;
+    if (!allowedTypes.test(file.originalname)) {
+      throw new BadRequestException(
+        'Only JPG, JPEG, PNG, and PDF files are allowed',
+      );
+    }
+
+    if (file.size > 2 * 1024 * 1024) {
+      throw new BadRequestException('File size exceeds 2MB');
+    }
+
+    const fileName = Date.now() + '-' + file.originalname;
     return {
-      message: "Material uploaded successfully",
+      message: 'File uploaded successfully',
       courseId: id,
-      filename: file.filename,
-      path: file.path
+      fileName,
     };
   }
+  
   
 }
