@@ -12,6 +12,7 @@ export class CourseService {
     return this.courses;
   }
 
+  //Get by id
   getCourseById(id: string) {
     const course = this.courses.find((course) => course.id === Number(id));
     if (!course) throw new NotFoundException('Course not found');
