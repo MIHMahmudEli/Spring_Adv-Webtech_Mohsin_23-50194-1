@@ -1,5 +1,4 @@
 POST http://localhost:3000/notification/send
-
 Content-Type: application/json
 {
     "studentName": "Ahmed",
@@ -7,9 +6,8 @@ Content-Type: application/json
 }
 
 POST http://localhost:3000/notification/check
-
 Content-Type: application/json
 {
     "studentName": "Ahmed",
-    "courseId": "2"
+    "courseId": "3"
 }
