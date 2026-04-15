@@ -1,0 +1,162 @@
+### Create Products
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "iPhone 15",
+    "price": 999.99,
+    "stock": 50,
+    "category": "Electronics"
+}
+
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "Samsung TV",
+    "price": 499.99,
+    "stock": 20,
+    "category": "Electronics"
+}
+
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "Running Shoes",
+    "price": 89.99,
+    "stock": 100,
+    "category": "Sports"
+}
+
+###
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "Notebook",
+    "price": 4.99,
+    "stock": 200,
+    "category": "Stationery"
+}
+
+
+### Read Operations
+
+### GET all products
+GET http://localhost:3000/products
+
+### GET product by ID
+GET http://localhost:3000/products/1
+
+### GET product by non-existent ID
+GET http://localhost:3000/products/999
+
+### GET products by category
+GET http://localhost:3000/products/category/Electronics
+
+### Search by keyword (phone)
+GET http://localhost:3000/products/search?keyword=phone
+
+### Search by keyword (s)
+GET http://localhost:3000/products/search?keyword=s
+
+
+### Update & Toggle
+
+### Partial update (PATCH)
+PATCH http://localhost:3000/products/2
+Content-Type: application/json
+
+{
+    "price": 899.99,
+    "stock": 45
+}
+
+### Validation error: Empty name
+PATCH http://localhost:3000/products/2
+Content-Type: application/json
+
+{
+    "name": ""
+}
+
+### Full replacement (PUT)
+PUT http://localhost:3000/products/2
+Content-Type: application/json
+
+{
+    "name": "iPhone 15 Pro",
+    "price": 1099.99,
+    "stock": 30,
+    "category": "Electronics"
+}
+
+### Validation error: Missing required fields for PUT
+PUT http://localhost:3000/products/2
+Content-Type: application/json
+
+{
+    "price": 799.99
+}
+
+### Toggle status (True -> False)
+PATCH http://localhost:3000/products/2/toggle
+
+### Toggle status (False -> True)
+PATCH http://localhost:3000/products/2/toggle
+
+
+### Delete Operations
+
+### DELETE product
+DELETE http://localhost:3000/products/4
+
+### DELETE already deleted product (404)
+DELETE http://localhost:3000/products/4
+
+### Verify 3 products remain
+GET http://localhost:3000/products
+
+
+### Validation Errors
+
+### POST missing name
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "price": 999.99,
+    "stock": 50,
+    "category": "Electronics"
+}
+
+### POST negative price
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "Invalid Product",
+    "price": -5,
+    "stock": 50,
+    "category": "Electronics"
+}
+
+### POST with unknown field
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "Unknown Field Product",
+    "price": 100,
+    "category": "Electronics",
+    "extraField": "Something"
+}
+
+### POST with no body
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{}

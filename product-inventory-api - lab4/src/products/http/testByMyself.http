@@ -1,0 +1,123 @@
+//GET requests
+GET http://localhost:3000/products
+//Get by id
+GET http://localhost:3000/products/1
+//Get by category
+GET http://localhost:3000/products/category/electronics
+//Get by search
+GET http://localhost:3000/products/search?keyword=mouse
+
+//POST requests
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "Laptop",
+    "description": "A laptop",
+    "price": 1000,
+    "stock": 10,
+    "category": "Electronics",
+    "isActive": true
+}
+
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "Mouse",
+    "description": "A mouse",
+    "price": 1000,
+    "stock": 10,
+    "category": "Electronics",
+    "isActive": true
+}
+
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "Keyboard",
+    "description": "A keyboard",
+    "price": 1000,
+    "stock": 10,
+    "category": "Electronics",
+    "isActive": true
+}
+
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "Bike",
+    "description": "A bike",
+    "price": 1000,
+    "stock": 10,
+    "category": "Sports",
+    "isActive": true
+}
+
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "Football",
+    "description": "A football",
+    "price": 1000,
+    "stock": 10,
+    "category": "Sports",
+    "isActive": true
+}
+
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "Bat",
+    "description": "A bat",
+    "price": 1000,
+    "stock": 10,
+    "category": "Sports",
+    "isActive": true
+}
+
+//PUT requests
+PUT http://localhost:3000/products/1
+Content-Type: application/json
+
+{
+    "name": "Mobile",
+    "description": "A mobile",
+    "price": 10000,
+    "stock": 50,
+    "category": "Electronics",
+    "isActive": true
+}
+
+//PATCH requests
+PATCH http://localhost:3000/products/1
+Content-Type: application/json
+
+{
+    "name": "Laptop",
+    "description": "A laptop"
+}
+
+//DELETE requests
+DELETE http://localhost:3000/products/1
+
+//PATCH requests
+PATCH http://localhost:3000/products/1/toggle-active    
+
+
+//invalid requests
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "Laptop",
+    "description": "A laptop",
+    "price": 1000,
+    "stock": 10,
+    "isActive": true
+}
+
