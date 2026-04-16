@@ -14,7 +14,7 @@ Content-Type: application/json
     "description": "Learn the basics of NestJS framework."
 }
 
-PUT http://localhost:3000/course/1
+PUT http://localhost:3000/course/2
 Content-Type: application/json
 
 {
@@ -79,6 +79,14 @@ Content-Type: application/json
     "instructor": "Jane Smith",
     "credits": 10,
     "description": "Deep dive into NestJS features and best practices."
+}
+
+
+PUT http://localhost:3000/course/1
+Content-Type: application/json
+
+{
+    "name": "Advanced dotnet"
 }
 
 

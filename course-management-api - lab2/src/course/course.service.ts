@@ -49,10 +49,10 @@ export class CourseService {
   }
 
   //FULL UPDATE (PUT)
-  updateCourse(id: string, updateCourseDto: UpdateCourseDto) {
+  updateCourse(id: string, createCourseDto: CreateCourseDto) {
     const index = this.courses.findIndex((course) => course.id === Number(id));
     if (index === -1) throw new NotFoundException('Course not found');
-    this.courses[index] = { ...this.courses[index], ...updateCourseDto };
+    this.courses[index] = { ...this.courses[index], ...createCourseDto };
     return {
       message: "Course updated successfully",
       id: id,
@@ -90,22 +90,11 @@ export class CourseService {
       throw new BadRequestException('File is required');
     }
 
-    const allowedTypes = /jpg|jpeg|png|pdf/;
-    if (!allowedTypes.test(file.originalname)) {
-      throw new BadRequestException(
-        'Only JPG, JPEG, PNG, and PDF files are allowed',
-      );
-    }
-
-    if (file.size > 2 * 1024 * 1024) {
-      throw new BadRequestException('File size exceeds 2MB');
-    }
-
-    const fileName = Date.now() + '-' + file.originalname;
     return {
       message: 'File uploaded successfully',
       courseId: id,
-      fileName,
+      fileName: file.filename,
+      filePath: file.path,
     };
   }
   
